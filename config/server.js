@@ -5,6 +5,7 @@ var app = express();
 app.set('view engine', 'ejs');
 app.set('views', './app/views');
 
-consign().include('app/routes').into(app); // inclui todos rotas dentro do app (dir routes)
+// inclui todos rotas dentro do app (dir routes)
+consign().include('app/routes').then('config/dbConnection.js').into(app); 
 
 module.exports = app;
