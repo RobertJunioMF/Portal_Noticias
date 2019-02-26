@@ -1,9 +1,13 @@
 var express = require('express');
 var consign = require('consign');
+var bodyParser = require('body-parser');
 
 var app = express();
 app.set('view engine', 'ejs');
 app.set('views', './app/views');
+
+
+app.use(bodyParser.urlencoded({extended: true})); // permite url codificadas
 
 // inclui todos rotas dentro do app durante auto load
 consign().include('app/routes')
